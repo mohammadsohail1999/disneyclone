@@ -1,26 +1,33 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
-* {
-  box-sizing: border-box;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+@layer base {
   body {
-    color: white;
-    background: black;
+    @apply bg-[#040714] text-[#f9f9f9] font-body no-scrollbar;
+  }
+}
+
+@layer components {
+  .header-link {
+    @apply flex items-center space-x-2 cursor-pointer;
+  }
+  .header-style {
+    @apply ml-2 relative before:content-[''] before:absolute before:h-[1px]
+     before:bg-white before:w-full before:bottom-[-5px] 
+     before:transition-all before:duration-200 before:scale-0 hover:before:scale-[1] before:origin-left;
+  }
+  .brand {
+    @apply flex relative w-52 h-32 border-solid border-2 border-gray-600 rounded-xl overflow-hidden hover:scale-[1.1] hover:border-4 hover:border-white transition-all duration-300 cursor-pointer;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
   }
 }
